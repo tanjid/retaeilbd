@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-_1^tmr!a6iba&mm*v82z3mp1pk6=&+h76cejl-xml(w%gb0$cz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139.177.184.56']
+ALLOWED_HOSTS = ['139.177.184.56', '127.0.0.1']
 
 
 # Application definition
@@ -81,6 +82,14 @@ DATABASES = {
     }
 }
 
+
+STATIC_URL = 'static/'
+MEDIA_URL = '/images/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
