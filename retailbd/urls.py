@@ -5,8 +5,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.home, name='home'),
-
-    path('suppler_orders/<str:pk>', views.suppler_orders, name='suppler_orders'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
