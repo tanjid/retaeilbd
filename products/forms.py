@@ -13,3 +13,27 @@ class ProductForm(ModelForm):
 
             for k, v in self.fields.items():
                 v.widget.attrs.update({'class': 'form-control'})
+
+class ProductCategoryForm(ModelForm):
+    class Meta:
+        model = ProductCategory
+        fields = '__all__'
+
+        def __init__(self, *args, **kwrags):
+            super(ProductCategory, self).__init__(*args, **kwrags)
+
+
+            for k, v in self.fields.items():
+                v.widget.attrs.update({'class': 'form-control'})
+
+class ProductBrandForm(ModelForm):
+    class Meta:
+        model = ProductBrand
+        fields = '__all__'
+
+        def __init__(self, *args, **kwrags):
+            super(ProductBrand, self).__init__(*args, **kwrags)
+
+
+            for k, v in self.fields.items():
+                v.widget.attrs.update({'class': 'form-control'})
