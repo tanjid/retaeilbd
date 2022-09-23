@@ -4,18 +4,17 @@
 <form action="new_order/" method="post">
         {% csrf_token %}
         <!-- {{form.as_p}} -->
-        <label for="fsku"> sku1</label>
-        <input type="text" name="fsku">
-        <label for="fsku"> sku1 QTY</label>
-        <input type="number" name="fqty">
+
+
+        <select name="sku" id="sku_list" class="form-control">
+            <option value="1" disabled selected >Select SKU</option>
+        </select>
         <br>
-        <br>
-        <label for="fsku"> sku1</label>
-        <input type="text" name="fsku">
-        <label for="fsku"> sku1 QTY</label>
-        <input type="number" name="fqty">
-        <br>
-        <br>
+
+        <input type="number" disabled class="form-control" id="price">
+<br>
+        <input type="number" class="form-control">
+<br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 {% endblock %}

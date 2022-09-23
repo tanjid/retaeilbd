@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .forms import NewDeliveryMethodForm, NewOrderForm
 from django.contrib import messages
-
+from django.http import JsonResponse
+from products.models import Product
 # Create your views here.
 def order_home(request):
 
@@ -41,3 +42,22 @@ def new_order(request):
 
 
     return render(request, 'order/new_order.html', context)
+
+
+def load_order_data(request):
+    data = []
+
+    porducts_data = Product.objects.all()
+
+    for obj in porducts_data:
+        item = {
+            'name': obj.name,
+            'sku': obj.sku,
+            'sell_price': obj.sell_price,
+            'stock_qty': obj.stock_qty,
+        }
+
+        data.append(item)
+    return JsonResponse({
+        'data': data,
+    })
